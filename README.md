@@ -6,8 +6,9 @@
 ![IBM & NASA](https://img.shields.io/badge/IBM_%26_NASA-Prithvi--EO_2.0-052FAD?style=for-the-badge&logo=ibm&logoColor=white)
 ![Meta SAM](https://img.shields.io/badge/Meta-Segment_Anything_3-0668E1?style=for-the-badge&logo=meta&logoColor=white)
 [![YouTube Pitch](https://img.shields.io/badge/YouTube-Vídeo_Pitch_Oficial-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=UaOoXXTM8tI)
+[![Portfólio](https://img.shields.io/badge/Portfólio-renan--xavier.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://renan-xavier.vercel.app)
 
-**Autor:** Renan Santa Rosa Xavier — RM566997  
+**Autor:** Renan Santa Rosa Xavier — RM566997 | 🌐 **Portfólio:** [renan-xavier.vercel.app](https://renan-xavier.vercel.app)  
 **Instituição:** FIAP — Análise e Desenvolvimento de Sistemas
 
 ---
