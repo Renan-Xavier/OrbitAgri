@@ -13,61 +13,78 @@
 
 ---
 
-## 🎬 Vídeo de Apresentação (Pitch Global Solution)
+## 📌 Visão Geral do Projeto
 
-Assista ao pitch completo do **OrbitAgri** gravado para a banca da Global Solution FIAP no YouTube:
+O **OrbitAgri** é uma plataforma SaaS projetada para a **Global Solution FIAP**, voltada à democratização do mercado voluntário de créditos de carbono para produtores rurais.
+
+O projeto substitui o **MRV analógico** (medição presencial, cara e invasiva com perfurações manuais de solo) por um ecossistema digital baseado em **sensoriamento remoto orbital** e **modelos fundacionais de Inteligência Artificial**. A solução cruza imagens multiespectrais diárias com dados meteorológicos para calcular remotamente o estoque de **Carbono Orgânico no Solo (SOC)** e a saúde dos talhões.
+
+---
+
+## 🎬 Demonstração do Sistema
+
+### Vídeo Pitch Oficial (Global Solution)
+Assista à apresentação executiva e conceitual do OrbitAgri no YouTube:
 
 [![Pitch OrbitAgri no YouTube](https://img.youtube.com/vi/UaOoXXTM8tI/maxresdefault.jpg)](https://www.youtube.com/watch?v=UaOoXXTM8tI)
 
 > 🔗 **Assistir no YouTube:** [OrbitAgri — Global Solution FIAP](https://www.youtube.com/watch?v=UaOoXXTM8tI)
 
----
-
-## 🛰️ Visão Geral da Solução
-
-O **OrbitAgri** é uma plataforma SaaS que utiliza a economia espacial e modelos fundacionais de Inteligência Artificial para democratizar o mercado voluntário de créditos de carbono para pequenos e médios produtores agrícolas.
-
-### 🔴 O Problema do MRV Analógico
-* A medição tradicional de **Carbono Orgânico no Solo (SOC)** exige coletas físicas presenciais, perfurações de solo e análises laboratoriais demoradas.
-* Processo extremamente custoso, moroso e invasivo, criando uma barreira financeira que exclui produtores rurais familiares do mercado global de créditos verdes.
-* A falta de escalabilidade do modelo analógico impede a adoção em massa da agricultura regenerativa.
-
-### 🟢 A Solução Espacial Digital
-* Ingestão diária de dados multiespectrais das constelações de satélites **Sentinel-2** (Agência Espacial Europeia / Copernicus) e **Landsat** (NASA).
-* Cruzamento de bandas espectrais (índices botânicos como NDVI, EVI e NDRE) com dados agrometeorológicos para estimativa contínua, não invasiva e escalável da saúde do solo e do estoque de carbono sequestrado.
-
----
-
-## 🖥️ Painel Analítico da Plataforma (Protótipo)
-
-Dashboard de telemetria em tempo real projetado para monitoramento agronômico e auditoria contínua de créditos de carbono:
+### Protótipo do Painel Analítico
+Dashboard com métricas agronômicas, evolução do SOC e alertas preditivos de IA:
 
 ![Protótipo Dashboard OrbitAgri](docs/img/slide_4_1.png)
 
-### Principais Módulos do Dashboard:
-1. **Curva de Evolução do SOC:** Histórico de 30 dias de carbono orgânico no solo por hectare.
-2. **Saúde NDVI por Talhão:** Segmentação individual de áreas de plantio com índice de vigor vegetativo.
-3. **Balanço Hídrico & Estresse:** Detecção precoce de anomalias hídricas e risco de dessecação.
-4. **Alerta Proativo de IA:** Feedback em tempo real via **IA Core Prithvi-2.0** alertando variações críticas em talhões específicos.
+---
+
+## 🏛️ Arquitetura da Solução
+
+O fluxo do sistema integra dados orbitais, modelos de visão computacional e inferência geoespacial:
+
+```mermaid
+flowchart TD
+    subgraph Satellites ["1. Sensoriamento Remoto Orbital"]
+        S2["Sentinel-2 (Copernicus ESA)\nBandas Multiespectrais (10m)"]
+        L8["Landsat 8/9 (NASA/USGS)\nDados Térmicos & Infravermelho"]
+    end
+
+    subgraph Pipeline ["2. Ingestão & Pré-Processamento"]
+        Hub["Copernicus Data Space API / Sentinel Hub"]
+        Indices["Cálculo de Índices Botânicos\n(NDVI, EVI, NDRE, Umidade)"]
+        Weather["Dados Meteorológicos & Relevo Topográfico"]
+    end
+
+    subgraph AI ["3. Camada de Inteligência Artificial"]
+        SAM["Segment Anything 3 (Meta SAM)\nDelimitação Zero-Shot dos Talhões"]
+        Prithvi["Prithvi-EO-2.0 (NASA & IBM)\nFoundation Model para Inferência de SOC"]
+        ML["XGBoost & Graph Neural Networks\nRefinamento com Padrões Verra"]
+    end
+
+    subgraph App ["4. Aplicação & Auditoria"]
+        Dash["ORBITAGRI_SYS // Dashboard\nTelemetria, Gráficos & Alertas"]
+        Reports["Relatórios Auditáveis\nCréditos de Carbono Verde & Financiamento"]
+    end
+
+    Satellites --> Hub
+    Hub --> Indices
+    Indices & Weather --> AI
+    SAM --> Prithvi
+    Prithvi --> ML
+    ML --> App
+```
 
 ---
 
-## 🧠 Arquitetura de Inteligência Artificial
+## 🛠️ Tecnologias Utilizadas
 
-| Pilar | Tecnologia | Aplicação no OrbitAgri |
-| :--- | :--- | :--- |
-| **Visão Geoespacial** | Segment Anything Model 3 (SAM 3) | Delimitação automatizada (*zero-shot*) dos talhões e isolamento de estradas e sedes ao nível do pixel. |
-| **Cálculo Espacial** | Prithvi-EO-2.0 (NASA & IBM) | Modelo fundacional geoespacial treinado em 7 anos de dados multiespectrais para inferência de SOC. |
-| **Machine Learning** | XGBoost & Graph Neural Networks (GNN) | Fusão de dados topográficos, elevação de terreno e telemetria para calibração com validação padrão Verra. |
-
----
-
-## 📈 Impactos e Diferenciais Estratégicos
-
-* **Redução de 90% nos custos de certificação:** Eliminação da dependência de amostragem presencial de solo constante.
-* **Escalabilidade Zero-Shot:** Aplicação imediata em qualquer região produtiva do Brasil sem necessidade de calibração manual prévia.
-* **Alinhamento ESG & ODS:** Contribuição direta para o **ODS 2** (Agricultura Sustentável) e **ODS 13** (Ação Climática).
-* **Mitigação de Risco Financeiro:** Relatórios analíticos auditáveis para bancos concederem crédito rural verde com taxas bonificadas.
+| Tecnologia | Aplicação na Solução |
+| :--- | :--- |
+| **Sentinel-2 (ESA) & Landsat (NASA)** | Constelações orbitais para captura de imagens multiespectrais gratuitas e de alta frequência. |
+| **Sentinel Hub API** | Endpoint de ingestão e normalização de dados do Copernicus Data Space Ecosystem. |
+| **Meta SAM 3 (Segment Anything)** | Modelo de segmentação visual para identificar e isolar os perímetros de talhões agrícolas sem necessidade de retreino. |
+| **Prithvi-EO-2.0 (IBM & NASA)** | Modelo fundacional geoespacial de 100M+ parâmetros treinado em 7 anos de observações terrestres para converter refletância em toneladas de carbono por hectare. |
+| **XGBoost & GNNs** | Algoritmos de calibração que cruzam os índices botânicos com a elevação topográfica e o histórico de uso do solo. |
+| **UI/UX Design** | Interface analítica desenvolvida para dashboards de telemetria agronômica e auditoria de crédito de carbono. |
 
 ---
 
@@ -83,7 +100,7 @@ Dashboard de telemetria em tempo real projetado para monitoramento agronômico e
 
 ---
 
-## 📚 Referências Científicas e Técnicas
+## 📚 Referências Técnicas
 
 1. [Copernicus Data Space Ecosystem (Sentinel Hub API)](https://dataspace.copernicus.eu/)
 2. [NASA Landsat Science Program](https://landsat.gsfc.nasa.gov/)
